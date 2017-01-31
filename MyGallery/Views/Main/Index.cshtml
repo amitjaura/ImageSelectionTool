@@ -1,0 +1,28 @@
+﻿
+<div class="container-fluid" ng-cloak>
+
+    <header class="row site-header">
+        <nav class="col-md-10 col-md-offset-1">
+            <div class="row">
+                <h1>Image Selection Tool</h1>
+            </div>
+            <div class="row">
+                <span ng-show="loggedIn" class="keep-left">
+                    <a href="#/traverseimage" class="margin-right-5">Select Images</a>|
+                    <a href="#/mypreferences" class="margin-left-5">My Collection</a>
+                </span>
+
+                <span class="keep-right">
+                    <a href="" ng-click="logout()" ng-show="loggedIn">{{username}} | Sign Out</a>
+                    <a href="#/signin" ng-hide="loggedIn" class="margin-right-5">Sign In</a>|
+                    <a href="#/register" ng-hide="loggedIn" class="margin-left-5">Register</a>
+                </span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="row site-body">
+        <div class="col-md-10 col-md-offset-1" ng-view>
+        </div>
+    </div>
+</div>

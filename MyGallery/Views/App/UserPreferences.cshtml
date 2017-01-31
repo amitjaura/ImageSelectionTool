@@ -1,0 +1,27 @@
+﻿<h2>Your Preferences</></h2>
+<div class="container-fluid">
+    <div class="row col-md-12">
+        Filter By:
+        <select ng-model="ImagePreference" ng-change="onChangeFilter()">
+            <option value="">All</option>
+            <option value="True">Likes</option>
+            <option value="False">Dislikes</option>
+        </select>
+    </div>
+    <div class="col-md-12 mt10" ng-cloak>
+        <div ng-repeat="image in preferences" ng-switch on="$index % 3" class="mt4">
+            <span ng-switch-when="0" class="gallery-image">
+                <img ng-src="{{preferences[$index].ImageName}}" />
+                <img class="inlay" ng-src="{{preferences[$index].ImagePreference?like:dislike}}" ng-show="isWaitOver" />
+            </span>
+            <span ng-switch-when="0" ng-show="preferences[$index+1]" class="gallery-image">
+                <img ng-src="{{preferences[$index+1].ImageName}}" />
+                <img class="inlay" ng-src="{{preferences[$index+1].ImagePreference?like:dislike}}" ng-show="isWaitOver" />
+            </span>
+            <span ng-switch-when="0" ng-show="preferences[$index+2]" class="gallery-image">
+                <img ng-src="{{preferences[$index+2].ImageName}}" />
+                <img class="inlay" ng-src="{{preferences[$index+2].ImagePreference?like:dislike}}" ng-show="isWaitOver" />
+            </span>
+        </div>
+    </div>
+</div>
