@@ -7,10 +7,12 @@ using System.Web.Http;
 
 namespace ImageSelectionTool.Controllers
 {
+    /// <summary>
+    /// Base service controller for our two(for the time being) services.
+    /// </summary>
     public class BaseServiceController : ApiController
     {
         private DBContext db = new DBContext();
-        //HttpContext httpContext = new HttpContext(new Http
 
         protected RoleManager<IdentityRole> RoleManager { get; private set; }
 

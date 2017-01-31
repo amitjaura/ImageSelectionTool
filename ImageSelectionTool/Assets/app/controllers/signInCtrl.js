@@ -1,4 +1,5 @@
-﻿angular.module('signIn', ['ngCookies'])
+﻿//I won't comment much on this, as its not important related to business logic
+angular.module('signIn', ['ngCookies'])
     .controller('signInCtrl', ['$scope', '$rootScope', '$http', '$cookies', '$cookieStore', '$location', '$routeParams', '$rootScope',
         function ($scope, $rootScope, $http, $cookies, $cookieStore, $location, $routeParams, $rootScope) {
         $scope.message = $routeParams.message;

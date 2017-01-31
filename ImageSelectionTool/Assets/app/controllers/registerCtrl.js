@@ -1,4 +1,5 @@
-﻿angular.module('register', [])
+﻿//we need it, we all need a Registration page...
+angular.module('register', [])
     .controller('registerCtrl',['$scope','$http', function ($scope, $http) {
         $scope.register = function()
         {

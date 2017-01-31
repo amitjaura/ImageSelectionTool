@@ -1,5 +1,7 @@
 ﻿angular.module('traverseImage', [])
     .controller('traverseImageController', ['$scope', '$http', '$rootScope', function ($scope, $http, $rootScope) {
+
+        //couldn't find a better way to navigate it to SignIn..not a sign of good design
         if ($rootScope.loggedIn!=undefined && $rootScope.loggedIn == false) window.location = '#/signin';
         $scope.imageSelected = false;
 
@@ -32,5 +34,5 @@
             $scope.dislike = "/img/dislike.png";
         }
 
-        $scope.imageUrl = '/img/noimage.jpg';
+        $scope.imageUrl = '/img/noimage.jpg';  //Personally speaking, I don't like this image. Don't know why I chose this at first place.
     }]);

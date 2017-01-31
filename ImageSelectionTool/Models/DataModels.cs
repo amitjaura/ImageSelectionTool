@@ -4,10 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
-using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using System.Web;
 
 namespace ImageSelectionTool.Models
 {
@@ -26,15 +24,59 @@ namespace ImageSelectionTool.Models
         public virtual List<UserImagePreference> UserImagePreferences { get; set; }
     }
 
+    /// <summary>
+    /// class to save user preference for Images
+    /// </summary>
     public class UserImagePreference {
+
+        /// <summary>
+        /// Don't use this guy, this is here for EF only
+        /// </summary>
+        protected UserImagePreference(){}
+
+
+        /// <summary>
+        /// Parameterised constructor
+        /// </summary>
+        /// <param name="imageName"></param>
+        /// <param name="preference"></param>
+        public UserImagePreference(string imageName, bool preference)
+        {
+            SetImageName(imageName);
+            Preference = preference;
+        }
+
         [Key]
         public int ID { get; set; }
 
-        //image from the gallery folder
-        public string ImageName { get; set; }
+        /// <summary>
+        ///image from the gallery folder 
+        /// </summary>
+        public string ImageName { get; private set; }
 
-        //Like - true; Dislike - false
+        /// <summary>
+        /// a public method to set image name. this will ensure our object wont get dirty
+        /// </summary>
+        /// <param name="imageName"></param>
+        public void SetImageName(string imageName)
+        {
+            //guard clause
+            if (string.IsNullOrWhiteSpace(imageName))
+            {
+                throw new ArgumentNullException("Image Name can't be null/empty");
+            }
+
+            ImageName = imageName;
+        }
+
+        /// <summary>
+        /// User preference for Image
+        /// Like - true; Dislike - false
+        /// We may change it to an Enum later if there are more options viz. superlike, but it 
+        /// all depends on requirements
+        /// </summary>
         public bool Preference { get; set; }
+        
     }
 
     public class DBContext : IdentityDbContext<User>

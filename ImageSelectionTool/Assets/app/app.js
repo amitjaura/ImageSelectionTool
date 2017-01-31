@@ -8,7 +8,7 @@
 ]);
 
 
-
+//normal practice: ignore bad requests, interceptor for ajax errors
 
 app.config(['$provide', '$routeProvider', '$httpProvider', function ($provide, $routeProvider, $httpProvider) {
     
@@ -56,9 +56,8 @@ app.config(['$provide', '$routeProvider', '$httpProvider', function ($provide, $
         controller: 'signInCtrl'
     });
     $routeProvider.otherwise({
-        redirectTo: '/traverseimage'
+        redirectTo: '/traverseimage'   //Didn't think about home page, so just set [Image Selection] page as default guy
     });
-    
 }]);
 
 app.run(['$http', '$cookies', '$cookieStore', function ($http, $cookies, $cookieStore) {

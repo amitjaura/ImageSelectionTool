@@ -14,8 +14,10 @@
 
                 <span class="keep-right">
                     <a href="" ng-click="logout()" ng-show="loggedIn">{{username}} | Sign Out</a>
-                    <a href="#/signin" ng-hide="loggedIn" class="margin-right-5">Sign In</a>|
-                    <a href="#/register" ng-hide="loggedIn" class="margin-left-5">Register</a>
+                    <span ng-hide="loggedIn">
+                        <a href="#/signin" class="margin-right-5">Sign In</a>|
+                        <a href="#/register" ng-hide="loggedIn" class="margin-left-5">Register</a>
+                    </span>
                 </span>
             </div>
         </nav>
